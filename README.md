@@ -8,13 +8,15 @@ This library was created as a way to import a spreadsheet into SketchUp 2017 wit
 - Encapsluated the Zip Gem in the library namespace, and reworked the monkey patching to prevent bleeding out of the namespace and potentially causing issues with other SketchUp extentions
 
 ## Usage
-Copy the repository
 
   ```ruby
   require_relative 'ods-reader'
 
-  spreadsheet = ODStoCSVarray.new('/path/to/file.ods')
-
-  spreadsheet.list # => ['Sheet1', 'Sheet2', ... ]
-  spreadsheet['Sheet1'] # => [['row1 col1','row1 col1', ... ], ['row2 col1','row2 col1', ... ], ... ]
+  module ThisEnnsHere
+    spreadsheet = ODStoCSVarray.new('/path/to/file.ods')
+  
+    spreadsheet.list # => ['Sheet1', 'Sheet2', ... ]
+    spreadsheet.has?('Sheet1') # => true
+    spreadsheet['Sheet1'] # => [['row1 col1','row1 col1', ... ], ['row2 col1','row2 col1', ... ], ... ]
+  end
   ```
