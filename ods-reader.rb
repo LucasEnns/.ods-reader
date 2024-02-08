@@ -29,6 +29,20 @@ module ThisEnnsHere
       convert
     end
 
+    def list
+      @sheets_csv.keys
+    end
+
+    def has?(name)
+      @sheets_csv.keys.include? name
+    end
+
+    def [](name)
+      @sheets_csv[name] if has?(name)
+    end
+
+    private
+
     def open(file_location)
       @sheets = {}
 
@@ -60,18 +74,6 @@ module ThisEnnsHere
           end
         @sheets_csv[name] = csv
       end
-    end
-
-    def list
-      @sheets_csv.keys
-    end
-
-    def has?(name)
-      @sheets_csv.keys.include? name
-    end
-
-    def [](name)
-      @sheets_csv[name] if has?(name)
     end
 
     def row_to_array(row)
