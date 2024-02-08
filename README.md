@@ -17,6 +17,6 @@ This library was created as a way to import a spreadsheet into SketchUp 2017 wit
   
     spreadsheet.list # => ['Sheet1', 'Sheet2', ... ]
     spreadsheet.has?('Sheet1') # => true
-    spreadsheet['Sheet1'] # => [['row1 col1','row1 col1', ... ], ['row2 col1','row2 col1', ... ], ... ]
+    spreadsheet['Sheet1'] # => [['row1 col1','row1 col2', ... ], ['row2 col1','row2 col2', ... ], ... ]
   end
   ```
