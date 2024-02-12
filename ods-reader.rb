@@ -1,8 +1,9 @@
 require 'rexml/document'
+require_relative 'spreadsheet-utils/abstract-class'
 require_relative 'zip/zipfilesystem'
 
 module ThisEnnsHere
-  class ODStoCSVarray
+  class ODStoCSVarray < AbstractSpreadsheet
     Encoding.default_external = 'UTF-8'
     def initialize(
       file_location,
@@ -27,18 +28,6 @@ module ThisEnnsHere
       @empty_test_column = empty_test_column
       open(file_location)
       convert
-    end
-
-    def list
-      @sheets_csv.keys
-    end
-
-    def has?(name)
-      @sheets_csv.keys.include? name
-    end
-
-    def [](name)
-      @sheets_csv[name] if has?(name)
     end
 
     private
